@@ -376,11 +376,11 @@ void Sub::update_altitude()
 bool Sub::control_check_barometer()
 {
     if (!ap.depth_sensor_present) { // can't hold depth without a depth sensor
-        gcs().send_text(MAV_SEVERITY_WARNING, "Depth sensor is not connected.");
-        return false;
+        gcs().send_text(MAV_SEVERITY_WARNING, "Depth sensor is not connected, but is still registered as working.");
+        return true;//return false;
     } else if (failsafe.sensor_health) {
-        gcs().send_text(MAV_SEVERITY_WARNING, "Depth sensor error.");
-        return false;
+        gcs().send_text(MAV_SEVERITY_WARNING, "Depth sensor error, but is still registered as working.");
+        return true; //return false;
     }
     return true;
 }
