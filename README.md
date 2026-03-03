@@ -3,7 +3,7 @@
 ### Setup instructions
 First you need to clone the workspace and update all of the dependencies.
 ```console
-git clone --recursive-submodules git@github.com:Sub-Horizon-NTNU/ardupilot_selene.git
+git clone --init --recursive git@github.com:Sub-Horizon-NTNU/ardupilot_selene.git
 ```
 
 After the repo is downloaded you can head into the ardupilot_selene/Tools/environment_install/ folder, this folder contains various setup programs. Among the most important ones is the install-prereqs-ubuntu.sh
