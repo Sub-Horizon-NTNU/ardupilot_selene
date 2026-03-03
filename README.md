@@ -1,4 +1,5 @@
 # Ardupilot Fork
+This forked is done in order to make some changes to the ArduPilot library for the Sub-Horizon USV Selene. Selene uses ArduSub for simplicity and comes with its own thruster allocation. Since Selene uses ArduSub instead of ArduRover there had to be some modifications. These changes include ignoring control checks looking for a barometer and changes to the waypoint navigation system (2D instead of 3D)
 
 ### Setup instructions
 First you need to clone the workspace and update all of the dependencies.
@@ -16,13 +17,13 @@ In order to compile projects it is recommended to download the ubuntu prerequisi
 ./Tools/environment_install/install-prereqs-ubuntu.sh
 ```
 After installation is completed you will be able to make changes to the ardupilot source code. These changes can be compiled with waf:
-###### export the cross compiler:
+##### export the cross compiler:
 ```console
 export PATH=/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:$PATH
 export CC=arm-none-eabi-gcc
 export CXX=arm-none-eabi-g++
 ```
-###### Configure
+##### Configure
 ```console
 ./waf configure --board CubeOrangePlus 
 ```
@@ -31,6 +32,11 @@ export CXX=arm-none-eabi-g++
 ```console
 ./waf sub 
 ```
+The resulting firmware can then be uploaded to the autopilot.
+```console
+/build/OrangeCubePlus/bin
+```
+
 
 
 
