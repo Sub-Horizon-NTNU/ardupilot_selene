@@ -1,3 +1,56 @@
+# Ardupilot Fork
+
+### Setup instructions
+First you need to clone the workspace and update all of the dependencies.
+```console
+git clone --recursive-submodules git@github.com:Sub-Horizon-NTNU/ardupilot_selene.git
+```
+
+After the repo is downloaded you can head into the ardupilot_selene/Tools/environment_install/ folder, this folder contains various setup programs. Among the most important ones is the install-prereqs-ubuntu.sh
+
+```console
+cd ardupilot_selene/
+```
+In order to compile projects it is recommended to download the ubuntu prerequisites **install-prereqs-ubuntu.sh**
+```console
+./Tools/environment_install/install-prereqs-ubuntu.sh
+```
+After installation is completed you will be able to make changes to the ardupilot source code. These changes can be compiled with waf:
+
+###### Configure
+```console
+./waf configure --board CubeOrangePlus 
+```
+##### Build
+```console
+./waf sub 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ArduPilot Project
 
 [![Discord](https://img.shields.io/discord/674039678562861068.svg)](https://ardupilot.org/discord)
