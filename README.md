@@ -1,7 +1,8 @@
 # Ardupilot Fork
-This forked is done in order to make some changes to the ArduPilot library for the Sub-Horizon USV Selene. Selene uses ArduSub for simplicity and comes with its own thruster allocation. Since Selene uses ArduSub instead of ArduRover there had to be some modifications. These changes include ignoring control checks looking for a barometer and changes to the waypoint navigation system (2D instead of 3D)
+This fork is made in order to make some changes to the ArduPilot library for the Sub-Horizon USV Selene. Selene uses ArduSub for simplicity and comes with its own thruster allocation. Since Selene uses ArduSub instead of ArduRover there had to be some modifications. These changes include ignoring control checks looking for a barometer and changes to the waypoint navigation system (2D instead of 3D).
+![Selene](image.png)
 
-### Setup instructions
+### Instructions
 First you need to clone the workspace and update all of the dependencies.
 ```console
 git clone --recurse-submodules git@github.com:Sub-Horizon-NTNU/ardupilot_selene.git
@@ -32,9 +33,9 @@ export CXX=arm-none-eabi-g++
 ```console
 ./waf sub 
 ```
-The resulting firmware can then be uploaded to the autopilot.
+The resulting firmware can then be uploaded to the autopilot. The firmware file is located at:
 ```console
-/build/OrangeCubePlus/bin
+/build/OrangeCubePlus/bin/x.apj
 ```
 
 
