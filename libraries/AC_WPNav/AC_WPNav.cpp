@@ -112,7 +112,6 @@ AC_WPNav::AC_WPNav(const AP_AHRS_View& ahrs, AC_PosControl& pos_control, const A
     _attitude_control(attitude_control)
 {
     AP_Param::setup_object_defaults(this, var_info);
-
     // init flags
     _flags.reached_destination = false;
     _flags.fast_waypoint = false;
@@ -552,21 +551,23 @@ bool AC_WPNav::advance_wp_target_along_track(float dt)
 
     // check if waypoint has been reached based on mode and radius
     if (!_flags.reached_destination) {
-        if (s_finished) {
-            // "fast" waypoints are complete once the intermediate point reaches the destination
-            if (_flags.fast_waypoint) {
+       if (s_finished) { 
+
+       }
+        // "fast" waypoints are complete once the intermediate point reaches the destination
+        if (_flags.fast_waypoint) {
+            _flags.reached_destination = true;
+        } else {
+            // regular waypoints also require the copter to be within the waypoint radius
+            const Vector3f dist_to_dest_m = (curr_pos_ned_m - _destination_ned_m).tofloat();
+            if (dist_to_dest_m.length_squared() <= sq(_wp_radius_cm * 0.01)) {
                 _flags.reached_destination = true;
-            } else {
-                // regular waypoints also require the copter to be within the waypoint radius
-                const Vector3f dist_to_dest_m = (curr_pos_ned_m - _destination_ned_m).tofloat();
-                if (dist_to_dest_m.length_squared() <= sq(_wp_radius_cm * 0.01)) {
-                    _flags.reached_destination = true;
-                }
-                if(sq(dist_to_dest_m.x*dist_to_dest_m.x+dist_to_dest_m.y*dist_to_dest_m.y) <= sq(_wp_radius_cm * 0.01)){
-                    _flags.reached_destination = true;
-                }
+            }
+            if((dist_to_dest_m.x*dist_to_dest_m.x+dist_to_dest_m.y*dist_to_dest_m.y) <= sq(_wp_radius_cm * 0.01)){
+                _flags.reached_destination = true;
             }
         }
+        //}
     }
 
     // successfully advanced along track
