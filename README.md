@@ -3,7 +3,7 @@
 ### Setup instructions
 First you need to clone the workspace and update all of the dependencies.
 ```console
-git clone --init --recursive git@github.com:Sub-Horizon-NTNU/ardupilot_selene.git
+git clone --recurse-submodules git@github.com:Sub-Horizon-NTNU/ardupilot_selene.git
 ```
 
 After the repo is downloaded you can head into the ardupilot_selene/Tools/environment_install/ folder, this folder contains various setup programs. Among the most important ones is the install-prereqs-ubuntu.sh
@@ -16,11 +16,17 @@ In order to compile projects it is recommended to download the ubuntu prerequisi
 ./Tools/environment_install/install-prereqs-ubuntu.sh
 ```
 After installation is completed you will be able to make changes to the ardupilot source code. These changes can be compiled with waf:
-
+###### export the cross compiler:
+```console
+export PATH=/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:$PATH
+export CC=arm-none-eabi-gcc
+export CXX=arm-none-eabi-g++
+```
 ###### Configure
 ```console
 ./waf configure --board CubeOrangePlus 
 ```
+
 ##### Build
 ```console
 ./waf sub 
