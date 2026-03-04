@@ -1,6 +1,6 @@
 # Ardupilot Fork
 This fork is made in order to make some changes to the ArduPilot library for the Sub-Horizon USV Selene. Selene uses ArduSub for simplicity and comes with its own thruster allocation. Since Selene uses ArduSub instead of ArduRover there had to be some modifications. These changes include ignoring control checks looking for a barometer and changes to the waypoint navigation system (2D instead of 3D).
-![Selene](image.png)
+![Selene](readme_images/selene.png)
 
 ### Instructions
 First you need to clone the workspace and update all of the dependencies.
