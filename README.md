@@ -35,7 +35,7 @@ export CXX=arm-none-eabi-g++
 ```
 The resulting firmware can then be uploaded to the autopilot. The firmware file is located at:
 ```console
-/build/OrangeCubePlus/bin/x.apj
+/build/OrangeCubePlus/bin/ardusub.bin
 ```
 
 
