@@ -1221,9 +1221,9 @@ void AP_DDS_Client::on_request(uxrSession* uxr_session, uxrObjectId object_id, u
 /*
   main loop for DDS thread
  */
-void AP_DDS_Client::main_loop(void)
-{
-    GCS_SEND_TEXT(MAV_SEVERITY_INFO, "%s initializing...", msg_prefix);
+void AP_DDS_Client::main_loop(void){
+    hal.scheduler->delay(5000);
+    GCS_SEND_TEXT(MAV_SEVERITY_INFO, "%s initializing (with 5000ms delay)...", msg_prefix);
     if (!init_transport()) {
         return;
     }
