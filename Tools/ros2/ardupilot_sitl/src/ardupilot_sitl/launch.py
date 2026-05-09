@@ -523,7 +523,7 @@ class SITLLaunch:
             # Required launch arguments.
             DeclareLaunchArgument(
                 "command",
-                default_value="arducopter",
+                default_value="ardusub",
                 description="Run ArduPilot SITL.",
                 choices=[
                     "antennatracker",
@@ -537,12 +537,12 @@ class SITLLaunch:
             ),
             DeclareLaunchArgument(
                 "model",
-                default_value="quad",
+                default_value="json",
                 description="Set simulation model.",
             ),
             DeclareLaunchArgument(
                 "slave",
-                default_value="0",
+                default_value="1",
                 description="Set the number of JSON slaves.",
             ),
             DeclareLaunchArgument(
@@ -552,7 +552,7 @@ class SITLLaunch:
             ),
             DeclareLaunchArgument(
                 "speedup",
-                default_value="1",
+                default_value="0",
                 description="Set simulation speedup.",
             ),
             DeclareLaunchArgument(
@@ -567,7 +567,7 @@ class SITLLaunch:
                         FindPackageShare("ardupilot_sitl"),
                         "config",
                         "default_params",
-                        "copter.parm",
+                        "rover.parm",
                     ]
                 ),
                 description="Set path to defaults file.",
@@ -581,7 +581,7 @@ class SITLLaunch:
             ),
             DeclareLaunchArgument(
                 "synthetic_clock",
-                default_value="False",
+                default_value="True",
                 description="Set synthetic clock mode.",
                 choices=BOOL_STRING_CHOICES,
             ),
