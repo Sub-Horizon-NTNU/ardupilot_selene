@@ -178,10 +178,10 @@ void AP_Motors6DOF::setup_motors(motor_frame_class frame_class, motor_frame_type
 
     case SUB_FRAME_CUSTOM:
         _frame_class_string = "CUSTOM";
-        add_motor_raw_6dof(AP_MOTORS_MOT_1,     0,              0,              1.0f,         0,                  1.0f,               1.0f,          1); // Left Front
-        add_motor_raw_6dof(AP_MOTORS_MOT_2,     0,              0,              1.0f,          0,                  1.0f,             -1.0f,          2); // Left Back
-        add_motor_raw_6dof(AP_MOTORS_MOT_3,     0,              0,              -1.0f,         0,                  1.0f,             -1.0f,          3); // Right Front
-        add_motor_raw_6dof(AP_MOTORS_MOT_4,     0,              0,              -1.0f,         0,                  1.0f,              1.0f,          4); // Right Back
+        add_motor_raw_6dof(AP_MOTORS_MOT_1,     0,              0,              1.0f *MOTOR_GAIN,         0,                  1.0f*MOTOR_GAIN,              1.0f*MOTOR_GAIN,          1); // Left Front
+        add_motor_raw_6dof(AP_MOTORS_MOT_2,     0,              0,              1.0f *MOTOR_GAIN,          0,                 1.0f*MOTOR_GAIN,             -1.0f*MOTOR_GAIN,          2); // Left Back
+        add_motor_raw_6dof(AP_MOTORS_MOT_3,     0,              0,              -1.0f*MOTOR_GAIN,         0,                  1.0f*MOTOR_GAIN,             -1.0f*MOTOR_GAIN,          3); // Right Front
+        add_motor_raw_6dof(AP_MOTORS_MOT_4,     0,              0,              -1.0f*MOTOR_GAIN,         0,                  1.0f*MOTOR_GAIN,              1.0f*MOTOR_GAIN,          4); // Right Back
         break;
 
     case SUB_FRAME_SIMPLEROV_3:
@@ -194,11 +194,11 @@ void AP_Motors6DOF::setup_motors(motor_frame_class frame_class, motor_frame_type
     case SUB_FRAME_SIMPLEROV_5:
     default:
         _frame_class_string = "DEFAULT";
-        add_motor_raw_6dof(AP_MOTORS_MOT_1,     0,              0,              -1.0f*MOTOR_GAIN,          0,                  1.0f*MOTOR_GAIN,               0,              1);
-        add_motor_raw_6dof(AP_MOTORS_MOT_2,     0,              0,              1.0f*MOTOR_GAIN,           0,                  1.0f*MOTOR_GAIN,               0,              2);
-        add_motor_raw_6dof(AP_MOTORS_MOT_3,     1.0f*MOTOR_GAIN,           0,              0,              -1.0f*MOTOR_GAIN,              0,                  0,              3);
-        add_motor_raw_6dof(AP_MOTORS_MOT_4,     -1.0f*MOTOR_GAIN,          0,              0,              -1.0f*MOTOR_GAIN,              0,                  0,              4);
-        add_motor_raw_6dof(AP_MOTORS_MOT_5,     0,              0,              0,              0,                  0,                  1.0f*MOTOR_GAIN,                         5);
+        add_motor_raw_6dof(AP_MOTORS_MOT_1,     0,              0,              -1.0f,          0,                  1.0f,               0,              1);
+        add_motor_raw_6dof(AP_MOTORS_MOT_2,     0,              0,              1.0f,           0,                  1.0f,               0,              2);
+        add_motor_raw_6dof(AP_MOTORS_MOT_3,     1.0f,           0,              0,              -1.0f,              0,                  0,              3);
+        add_motor_raw_6dof(AP_MOTORS_MOT_4,     -1.0f,          0,              0,              -1.0f,              0,                  0,              4);
+        add_motor_raw_6dof(AP_MOTORS_MOT_5,     0,              0,              0,              0,                  0,                  1.0f,                         5);
         break;
     }
 }
